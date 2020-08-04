@@ -1,9 +1,9 @@
 ---
 home: true
-heroText: 馨客栈
+heroText: 学习文字沉淀
 tagline: 关注分享，关注导航，关注馨客栈
 actionText: 每日更新 →
-actionLink: /fuli/
+actionLink: //
 features:
 - title: 馨客栈导航
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作
