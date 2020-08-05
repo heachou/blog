@@ -15,10 +15,12 @@ module.exports = {
       { text: 'typescript', link: '/typescript/' },
       { text: 'node', link: '/node/' },
       { text: 'python', link: '/python/' },
+      { text: 'bugs', link: '/bugs/' },
     ],
     sidebar: {
       '/react/': ['', '基础', '生命周期', 'hooks'],
-      '/vue/': ['', 'vuepress配置code-copy']
+      '/vue/': ['', 'vuepress配置code-copy'],
+      '/bugs/': ['', 'toFixed'],
     },
     // 博客配置
     blogConfig: {
