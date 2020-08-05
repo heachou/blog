@@ -3,7 +3,7 @@ module.exports = {
   description: '文字记录学习的过程',
   theme: 'reco',
   head: [
-    ['link', { rel: 'icon', href:'/logo.ico'}],
+    ['link', { rel: 'icon', href: '/logo.ico' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
   ],
   themeConfig: {
@@ -17,7 +17,8 @@ module.exports = {
       { text: 'python', link: '/python/' },
     ],
     sidebar: {
-      '/react/': ['', '基础', '生命周期', 'hooks']
+      '/react/': ['', '基础', '生命周期', 'hooks'],
+      '/vue/': ['', 'vuepress配置code-copy']
     },
     // 博客配置
     blogConfig: {
@@ -29,6 +30,10 @@ module.exports = {
         location: 3,     // 在导航栏菜单中所占的位置，默认3
         text: 'Tag'      // 默认文案 “标签”
       }
-    }
-  }
+    },
+  },
+  plugins: [['vuepress-plugin-code-copy', {
+    selector: 'div[class*="language-"] pre',
+    color: '#3e7f7c'
+  }]]
 }
