@@ -56,8 +56,8 @@ Math.round(0.15 * 10) / 10 //0.2
 // 保留两位小数
 Math.round(0.15 * 100) / 100 //0.15
 
-function toFixed(num,n){
-    const base = Math.pow(10,n)
+function toFixed(num,len){
+    const base = Math.pow(10,len)
     return Math.round(num * base) / base
 }
 toFixed(0.15,1) // 0.2
