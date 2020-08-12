@@ -2,6 +2,7 @@ module.exports = {
   title: '沉淀',
   description: '文字记录学习的过程',
   theme: 'reco',
+  base: '/blog/',
   head: [
     ['link', { rel: 'icon', href: '/logo.ico' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
