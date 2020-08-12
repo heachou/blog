@@ -18,7 +18,7 @@ jobs:
 
       - name: Build and Deploy
         uses: grasilife/github-pages-deploy-action@master
-        with:
+        env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: master
           FOLDER: docs/.vuepress/dist
