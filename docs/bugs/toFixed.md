@@ -7,6 +7,12 @@ tags:
  - js
 ---
 
+:::tip
+number.toFixed 方法常用于四舍五入计算，但是今天遇到了bug，于是记录下来
+:::
+
+<!-- more -->
+
 # js 中 toFixed 的bug
 
 今天遇到了一个莫名奇妙的bug，公司测试大佬告诉我，页面上有个地方四舍五入值不对！
@@ -22,45 +28,50 @@ tags:
 - 重写Number原型上的toFixed 方法
 
 ```js
-Number.prototype.toFixed = function (d) {
-  var s = this + "";
-  if (!d) d = 0;
-  if (s.indexOf(".") == -1) s += ".";
-  s += new Array(d + 1).join("0");
-  if (new RegExp("^(-|\\+)?(\\d+(\\.\\d{0," + (d + 1) + "})?)\\d*$").test(s)) {
-    var s = "0" + RegExp.$2, pm = RegExp.$1, a = RegExp.$3.length, b = true;
-    if (a == d + 2) {
-      a = s.match(/\d/g);
-      if (parseInt(a[a.length - 1]) > 4) {
-        for (var i = a.length - 2; i >= 0; i--) {
-          a[i] = parseInt(a[i]) + 1;
-          if (a[i] == 10) {
-            a[i] = 0;
-            b = i != 1;
-          } else break;
-        }
+Number.prototype.toFixed = function (decimal) {
+  let number = this
+  decimal = decimal || 0;
+  var s = String(number);
+  var decimalIndex = s.indexOf('.');
+  if (decimalIndex < 0) {
+    var fraction = '';
+    for (var i = 0; i < decimal; i++) {
+      fraction += '0';
+    }
+    return s + '.' + fraction;
+  }
+  var numDigits = s.length - 1 - decimalIndex;
+  if (numDigits <= decimal) {
+    var fraction = '';
+    for (var i = 0; i < decimal - numDigits; i++) {
+      fraction += '0';
+    }
+    return s + fraction;
+  }
+  var digits = s.split('');
+  var pos = decimalIndex + decimal;
+  var roundDigit = digits[pos + 1];
+  if (roundDigit > 4) {
+    //跳过小数点
+    if (pos == decimalIndex) {
+      --pos;
+    }
+    digits[pos] = Number(digits[pos] || 0) + 1;
+    //循环进位
+    while (digits[pos] == 10 && pos !== 0) {
+      digits[pos] = 0;
+      --pos;
+      if (pos == decimalIndex) {
+        --pos;
       }
-      s = a.join("").replace(new RegExp("(\\d+)(\\d{" + d + "})\\d$"), "$1.$2");
-    } if (b) s = s.substr(1);
-    return (pm + s).replace(/\.$/, "");
-  } return this + "";
-};
-```
-参考 [重写toFixed](https://blog.csdn.net/nndhyp/article/details/78614480)
-
-- 借助Math.round
-
-```js
-// 保留一位小数
-Math.round(0.15 * 10) / 10 //0.2
-// 保留两位小数
-Math.round(0.15 * 100) / 100 //0.15
-
-function toFixed(num,len){
-    const base = Math.pow(10,len)
-    return Math.round(num * base) / base
+      digits[pos] = Number(digits[pos] || 0) + 1;
+    }
+  }
+  //避免包含末尾的.符号
+  if (decimal == 0) {
+    decimal--;
+  }
+  return digits.slice(0, decimalIndex + decimal + 1).join('');
 }
-toFixed(0.15,1) // 0.2
-toFixed(0.15,2) // 0.15
 ```
 

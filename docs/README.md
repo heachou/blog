@@ -1,15 +1,22 @@
 ---
 home: true
-heroText: 学习文字沉淀
-tagline: 关注分享，关注导航，关注馨客栈
-actionText: 每日更新 →
-actionLink: //
-features:
-- title: 馨客栈导航
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作
-- title: 馨客栈前端导航
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 馨客栈每日分享
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: MIT Licensed | Copyright © 2020-present Zhou
+heroText: null
+bgImage: '/pencils.jpg'
+bgImageStyle: {
+  height: '350px',
+  paddingBottom: '40px',
+  color: '#fff',
+  letterSpacing: '1px',
+  fontWeight: 'bold',
+  fontFamily: '"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif'
+}
+heroImage: /watercolor.jpg
+heroImageStyle: {
+  maxHeight: '200px',
+  display: block,
+  margin: '6rem auto 1.5rem',
+  borderRadius: '50%',
+  boxShadow: '0 5px 18px rgba(0,0,0,0.2)',
+}
+footer: MIT Licensed | Copyright © 2020-present axl_zhou
 ---

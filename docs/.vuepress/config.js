@@ -16,6 +16,7 @@ module.exports = {
       { text: 'node', link: '/node/' },
       { text: 'python', link: '/python/' },
       { text: 'bugs', link: '/bugs/' },
+      { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' }
     ],
     sidebar: {
       '/react/': ['', '基础', '生命周期', 'hooks'],
@@ -33,6 +34,27 @@ module.exports = {
         text: 'Tag'      // 默认文案 “标签”
       }
     },
+    huawei: true,
+    valineConfig: {
+      appId: 'AoyjJGDtBqGSXGLVsCNLOS5n-gzGzoHsz',// your appId
+      appKey: 'g5GUfJbyxxfSAzrfr2OyB1NC', // your appKey
+    },
+    // vssueConfig: {
+    //   platform: 'github',
+    //   owner: 'heachou',
+    //   repo: 'blogs',
+    //   clientId: 'Iv1.e5bc0a941796bfbc',
+    //   clientSecret: 'eb9ce78521ec0f01d8ac054bf18e3a46cc749fd9',
+    // },
+    logo: '/logo.ico',
+    authorAvatar: 'logo.ico',
+    author: 'axl_zhou',
+    type: 'blog',
+    // 备案
+    record: 'ICP 备案文案',
+    recordLink: 'ICP 备案指向链接',
+    // 项目开始时间，只填写年份
+    startYear: '2020'
   },
   plugins: [['vuepress-plugin-code-copy', {
     selector: 'div[class*="language-"] pre',
