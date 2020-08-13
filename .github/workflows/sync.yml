@@ -2,7 +2,7 @@ name: Sync
 
 on:
   push:
-    branches: [ master ]
+    branches: [ gh-pages ]
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       with:
           # 注意替换为你的 GitHub 源仓库地址
           source-repo: "git@github.com:heachou/blog.git"
-          # 注意替换为你的 Gitee 目标仓库地址 again
+          # 注意替换为你的 Gitee 目标仓库地址
           destination-repo: "git@gitee.com:axl_zhou/blog.git"
 
     - name: Build Gitee Pages
