@@ -17,12 +17,14 @@ module.exports = {
       { text: 'node', link: '/node/' },
       { text: 'python', link: '/python/' },
       { text: 'bugs', link: '/bugs/' },
+      { text: 'else', link: '/else/' },
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' }
     ],
     sidebar: {
       '/react/': ['', '基础', '生命周期', 'hooks'],
       '/vue/': ['', 'vuepress配置code-copy'],
       '/bugs/': ['', 'toFixed'],
+      '/else/': ['', 'axios 下载'],
     },
     // 博客配置
     blogConfig: {
