@@ -21,7 +21,7 @@ module.exports = {
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' }
     ],
     sidebar: {
-      '/react/': ['', '基础', '生命周期', 'hooks'],
+      '/react/': ['', 'react中模块懒加载', '生命周期', 'hooks'],
       '/vue/': ['', 'vuepress配置code-copy'],
       '/bugs/': ['', 'toFixed'],
       '/else/': ['', 'axios 下载'],
