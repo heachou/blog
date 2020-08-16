@@ -23,6 +23,7 @@ module.exports = {
     sidebar: {
       '/react/': ['', 'react中模块懒加载', '生命周期', 'hooks'],
       '/vue/': ['', 'vuepress配置code-copy'],
+      '/webpack/': ['', 'webpack配置多入口'],
       '/bugs/': ['', 'toFixed'],
       '/else/': ['', 'axios 下载'],
     },
