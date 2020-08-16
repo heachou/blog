@@ -157,7 +157,7 @@ new ManifestPlugin({
 
 now， run `npm run start`试试，webpack配置多页面完成
 
-
+[github 多页面配置demo](https://github.com/heachou/mpa-demo)
 
 参考：
 - [html-webpack-plugin](https://www.webpackjs.com/plugins/html-webpack-plugin/)
