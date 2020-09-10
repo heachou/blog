@@ -31,7 +31,7 @@ module.exports = {
       '/vue/': ['', 'vuepress配置code-copy'],
       '/webpack/': ['', 'webpack配置多入口'],
       '/bugs/': ['', 'toFixed', 'new Date ios'],
-      '/else/': ['', 'axios 下载'],
+      '/else/': ['', 'axios 下载','github proxy'],
     },
     // 博客配置
     blogConfig: {
