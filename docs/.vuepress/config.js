@@ -22,6 +22,7 @@ module.exports = {
       { text: 'typescript', link: '/typescript/' },
       { text: 'node', link: '/node/' },
       { text: 'python', link: '/python/' },
+      { text: 'flutter', link: '/flutter/' },
       { text: 'bugs', link: '/bugs/' },
       { text: 'else', link: '/else/' },
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
@@ -31,6 +32,7 @@ module.exports = {
       '/vue/': ['', 'vuepress配置code-copy'],
       '/webpack/': ['', 'webpack配置多入口'],
       '/bugs/': ['', 'toFixed', 'new Date ios'],
+      '/flutter/': ['','PageView切换保存状态'],
       '/else/': ['', 'axios 下载','github proxy'],
     },
     // 博客配置
