@@ -75,3 +75,24 @@ Number.prototype.toFixed = function (decimal) {
 }
 ```
 
+## 更好的处理方式
+
+前些天，逛github的时候，意外发现一个依赖包，可以解决js进行计算精度丢失的问题
+
+### 使用
+```bash
+npm install bignumber.js
+```
+
+```js
+import BigNumber from "bignumber.js"
+
+let x = new BigNumber(255.5)
+x.toExponential(5)                  // "2.55500e+2"
+x.toFixed(5)                        // "255.50000"
+x.toPrecision(5)                    // "255.50"
+x.toNumber()                        //  255.5
+
+```
+
+更多用法移步  [bignumber.js](https://github.com/MikeMcl/bignumber.js)
