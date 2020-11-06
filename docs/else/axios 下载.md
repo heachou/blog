@@ -1,6 +1,6 @@
 ---
 title: axios 下载文件
-date: 2020-08-13
+date: 2020-11-06
 categories:
  - 前端
 tags:
@@ -30,20 +30,27 @@ tags:
 axios ({
   url: '/web/v1/students/template',
   method: 'get',
-  responseType: "blob"
+  headers:{ // 必须指定header
+    'Content-Type': 'application/json; application/octet-stream'
+  },
+  responseType: "blob" // 须指定返回类型
 })
 ```
-一定使用上面的调用方式 切不可使用 ``axios.get()`` 方式,否则获取到的文件打不开，提示损坏
+一定使用上面的调用方式 切不可使用 `axios.get()` 方式,否则获取到的文件打不开，提示损坏，
 
 ## example 下载excel
 
 ```js
 
-function getExcel(){
+function getExcel(id){
   return axios ({
-    url: '/web/v1/students/template',
-    method: 'get',
-    responseType: "blob"
+    method: 'GET',
+      url: '/web/v1/soft_versions/download',
+      responseType: 'blob',
+      headers:{
+        'Content-Type': 'application/json; application/octet-stream'
+      },
+      params: { id },
   })
 }
 
@@ -51,7 +58,15 @@ async function convertRes2Blob() {
   // 获取返回的文件数据
   let response = await getExcel()
   // 提取文件名
-  const fileName = "学生导入模板.xlsx"
+  let fileName
+  try {
+    let encodeFileName = response.headers['content-disposition']
+      .split(';')[2]
+      .split("filename*=utf-8''")[1]
+    fileName = decodeURI(encodeFileName)
+  } catch (error) {
+    console.log(error)
+  }
   // 将二进制流转为blob
   const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
   // 创建新的URL并指向File对象或者Blob对象的地址
