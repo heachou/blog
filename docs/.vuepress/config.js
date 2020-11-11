@@ -25,6 +25,7 @@ module.exports = {
       { text: 'flutter', link: '/flutter/' },
       { text: 'bugs', link: '/bugs/' },
       { text: 'else', link: '/else/' },
+      { text: 'js', link: '/js/' },
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
     ],
     sidebar: {
@@ -33,6 +34,7 @@ module.exports = {
       '/webpack/': ['', 'webpack配置多入口'],
       '/bugs/': ['', 'toFixed', 'new Date ios'],
       '/flutter/': ['','PageView切换保存状态'],
+      '/js/': ['','js根据数组生成树形结构'],
       '/else/': ['', 'axios 下载','github proxy','Set','Map'],
     },
     // 博客配置
