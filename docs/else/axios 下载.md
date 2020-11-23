@@ -68,7 +68,7 @@ async function convertRes2Blob() {
     console.log(error)
   }
   // 将二进制流转为blob
-  const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
+  const blob = new Blob([response.data], { type: 'application/json; application/octet-stream' })
   // 创建新的URL并指向File对象或者Blob对象的地址
   const blobURL = window.URL.createObjectURL(blob)
   // 创建a标签，用于跳转至下载链接
