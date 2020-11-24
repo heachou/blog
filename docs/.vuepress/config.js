@@ -30,7 +30,7 @@ module.exports = {
     ],
     sidebar: {
       '/react/': ['', 'react中模块懒加载', '生命周期', 'hooks'],
-      '/vue/': ['', 'vuepress配置code-copy','defineProperty','vdom'],
+      '/vue/': ['', 'vuepress配置code-copy','defineProperty','vdom','router'],
       '/webpack/': ['', 'webpack配置多入口'],
       '/bugs/': ['', 'toFixed', 'new Date ios'],
       '/flutter/': ['','PageView切换保存状态'],

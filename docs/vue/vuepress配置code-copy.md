@@ -1,5 +1,5 @@
 ---
-title: vuepress 配置code-copy 插件
+title: vuepress 配置 code-copy
 date: 2020-08-05
 categories:
  - 前端
