@@ -34,7 +34,7 @@ module.exports = {
       '/webpack/': ['', 'webpack配置多入口'],
       '/bugs/': ['', 'toFixed', 'new Date ios'],
       '/flutter/': ['','PageView切换保存状态'],
-      '/js/': ['','js根据数组生成树形结构','tools','promise','curry'],
+      '/js/': ['','js根据数组生成树形结构','tools','promise','curry','element'],
       '/else/': ['', 'axios 下载','github proxy','Set','Map'],
     },
     // 博客配置
