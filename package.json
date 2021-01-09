@@ -14,8 +14,9 @@
   "devDependencies": {
     "vuepress": "^1.5.2",
     "vuepress-plugin-one-click-copy": "^1.0.2",
-    "vuepress-theme-reco": "^1.5.5",
-    "watchpack": "^1.6.1"
+    "vuepress-theme-reco": "^1.6.1",
+    "watchpack": "^1.6.1",
+    "axios": ">=0.21.1"
   },
   "dependencies": {
     "vuepress-plugin-code-copy": "^1.0.6"
