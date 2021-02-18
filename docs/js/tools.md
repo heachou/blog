@@ -55,7 +55,7 @@ function deepCopy(data, hash = new WeakMap()) {
 
 防抖函数只会执行一次，将多次执行变为一次执行
 
-#### 袖珍版 函数只能在最后调用
+### 袖珍版 函数只能在最后调用
 
 ```js
 const debounce = (func, wait = 100) => {
@@ -175,6 +175,7 @@ const sleep = (time) => {
   })
 }
 ```
+
 ## 扁平数组
 
 ```js
@@ -192,6 +193,7 @@ function flatDeep(arr, d = 1) {
 见上一篇 [文档](./js根据数组生成树形结构)
 
 ------
+
 ## 类型判断
 
 ```js
