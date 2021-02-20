@@ -24,7 +24,6 @@ test.apply(obj,[a,b,c]);
 
 ## call、apply、bind例子
 
-
 ```js
 
 var obj1 = {a:1,b:2}
