@@ -35,7 +35,7 @@ module.exports = {
       '/bugs/': ['', 'toFixed', 'new Date ios'],
       '/flutter/': ['','PageView切换保存状态'],
       '/js/': ['','js根据数组生成树形结构','tools','promise','curry','element','一些思考','generator','this','call、apply、bind、new'],
-      '/else/': ['', 'axios 下载','github proxy','Set','Map'],
+      '/else/': ['', 'axios 下载','github proxy','从输入URL到页面展示，发生了什么','Set','Map'],
     },
     // 博客配置
     blogConfig: {
@@ -65,7 +65,7 @@ module.exports = {
     author: 'axl_zhou',
     type: 'blog',
     // 备案
-    record: 'ICP 备案文案',
+    record: 'ICP 备案',
     recordLink: 'https://beian.miit.gov.cn',
     // 项目开始时间，只填写年份
     startYear: '2020',
