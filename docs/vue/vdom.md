@@ -94,7 +94,24 @@ diff 算法是vdom中最核心最关键的部分
 
 ![diff](./diff1.png) 
 
- 
+
+
+ ## 总结
+
+ 虚拟dom是通过JS对象来模拟dom的节点，提升了代码抽象能力，避免人为的 dom 操作，这里以 React 为例子，在 render 函数中写的 JSX 会在 Babel 插件的作用下，编译为 React.createElement 执行 JSX 中的属性参数。
+
+ React.createElement 执行后会返回一个 Plain Object，它会描述自己的 tag 类型、props 属性以及 children 情况等。这些 Plain Object 通过树形结构组成一棵虚拟 DOM 树。当状态发生变更时，将变更前后的虚拟 DOM 树进行差异比较，这个过程称为 diff，生成的结果称为 patch。计算之后，会渲染 Patch 完成对真实 DOM 的操作。
+
+虚拟 DOM 的优点主要有三点：改善大规模 DOM 操作的性能、规避 XSS 风险、能以较低的成本实现跨平台开发。
+
+虚拟 DOM 的缺点在社区中主要有两点。
+
+内存占用较高，因为需要模拟整个网页的真实 DOM。
+
+[协调 react](https://zh-hans.reactjs.org/docs/reconciliation.html)
+
+
+
 
 
 

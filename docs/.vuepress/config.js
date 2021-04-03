@@ -3,6 +3,13 @@ module.exports = {
   description: '文字记录学习的过程',
   theme: 'reco',
   base: '/blog/',
+  locales: {
+    // 键名是该语言所属的子路径
+    // 作为特例，默认语言可以使用 '/' 作为其路径。
+    '/': {
+      lang: 'zh-CN',
+    },
+  },
   head: [
     ['link', { rel: 'icon', href: '/logo.ico' }],
     [
@@ -12,8 +19,16 @@ module.exports = {
         content: 'width=device-width,initial-scale=1,user-scalable=no',
       },
     ],
+    [
+      'meta',
+      {
+        name: 'viewport',
+        content: 'width=device-width,initial-scale=1,user-scalable=no',
+      },
+    ],
   ],
   themeConfig: {
+    lastUpdated: false,
     nav: [
       { text: '首页', link: '/' },
       { text: 'React', link: '/react/' },
@@ -33,11 +48,10 @@ module.exports = {
       '/react/': ['', 'react中模块懒加载', '生命周期', 'hooks'],
       '/vue/': ['', 'vuepress配置code-copy','defineProperty','vdom','router'],
       '/webpack/': ['', 'webpack配置多入口'],
-      '/bugs/': ['', 'toFixed', 'new Date ios'],
+      '/bugs/': ['', 'toFixed', 'new Date ios','js运行环境判断'],
       '/flutter/': ['','PageView切换保存状态'],
-      '/js/': ['','js根据数组生成树形结构','tools','promise','curry','element','一些思考','generator','this','call、apply、bind、new'],
-      '/else/': ['', 'axios 下载','github proxy','Set','Map'],
-      '/project/': ['','resume']
+      '/js/': ['','js根据数组生成树形结构','tools','promise','curry','compose','element','一些思考','generator','this','call、apply、bind、new'],
+      '/else/': ['', 'axios 下载','github proxy','从输入URL到页面展示，发生了什么','Set','Map'],
     },
     // 博客配置
     blogConfig: {
@@ -67,7 +81,7 @@ module.exports = {
     author: 'axl_zhou',
     type: 'blog',
     // 备案
-    record: 'ICP 备案文案',
+    record: 'ICP 备案',
     recordLink: 'https://beian.miit.gov.cn',
     // 项目开始时间，只填写年份
     startYear: '2020',

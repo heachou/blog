@@ -58,15 +58,30 @@ function deepCopy(data, hash = new WeakMap()) {
 ### 袖珍版 函数只能在最后调用
 
 ```js
-const debounce = (func, wait = 100) => {
-  let timer = 0
-  return function(...args) {
+
+function debounce(fn, wait, immediate) {
+  var timer
+  var result
+  return function() {
+    var context = this
+    var args = arguments
     if (timer) {
       clearTimeout(timer)
     }
-    timer = setTimeout(() => {
-      func.apply(this, args)
-    }, wait)
+    if (immediate) {
+      var callNow = !timer
+      setTimeout(function() {
+        timer = null
+      }, wait)
+      if (callNow) {
+        result = fn.apply(context, args)
+      }
+    } else {
+      timer = setTimeout(function() {
+        fn.apply(context, args)
+      }, wait)
+    }
+    return result
   }
 }
 ```
@@ -190,7 +205,7 @@ function flatDeep(arr, d = 1) {
 
 ## 根据数组生成树形结构
 
-见上一篇 [文档](./js根据数组生成树形结构)
+见上一篇 [js根据数组生成树形结构](./js根据数组生成树形结构)
 
 ------
 
