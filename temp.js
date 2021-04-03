@@ -58,7 +58,7 @@ function fib(n) {
 function debounce(fn, wait, immediate) {
   var timer
   var result
-  return function() {
+  return function () {
     var context = this
     var args = arguments
     if (timer) {
@@ -66,14 +66,14 @@ function debounce(fn, wait, immediate) {
     }
     if (immediate) {
       var callNow = !timer
-      setTimeout(function() {
+      setTimeout(function () {
         timer = null
       }, wait)
       if (callNow) {
         result = fn.apply(context, args)
       }
     } else {
-      timer = setTimeout(function() {
+      timer = setTimeout(function () {
         fn.apply(context, args)
       }, wait)
     }
@@ -224,7 +224,7 @@ function fib2(n) {
 // console.timeEnd('fib2')
 function throttle(fn, delay) {
   let _previous = 0
-  return function() {
+  return function () {
     var _this = this
     var args = [].slice.call(arguments)
     const now = new Date().getTime()
@@ -257,4 +257,68 @@ function getMaxSum(arr) {
   return maxSum
 }
 
-const a = [1, -2, 3, 4, -1, 5]
+
+const double = (x) => x * 2
+
+const increment = (x) => x + 1
+
+// console.log(a.map(double).map(increment))
+
+const compose = (...fns) => {
+  let result
+  let len = fns.length
+  return function (...args) {
+    let count = len
+    while (count > 0) {
+      result = fns[count - 1].apply(null, count === len ? args : [result])
+      count--
+    }
+    return result
+  }
+}
+
+// const compose = (...fns) => {
+//   return fns.reduce((acc, current) => value => {
+//     console.log(current(value))
+//     return acc(current(value))
+//   })
+// }
+
+// const compose = (...fns) =>
+//   fns.reduce((prevFn, nextFn) =>
+//     (...args) => nextFn(prevFn(...args)),
+//     value => value
+//   );
+
+// // console.log(compose(double, increment))
+
+// const example = compose(
+//   val => { console.log(1); return `1<${val}>`; },
+//   val => { console.log(2); return `2<${val}>`; },
+//   val => { console.log(3); return `3<${val}>`; }
+// );
+
+// var str = example('hello')
+// console.log(str)
+// console.log('done')
+
+// const a = [1, -2, 3, 4, -1, 5]
+
+// const sum = a.reduce((acc, current) => {
+//   console.log('acc', acc)
+//   console.log('current', current)
+//   return acc + current
+// }, 0)
+// console.log(sum)
+
+const fns = [double, increment, increment, double, increment]
+
+var res = fns.reduce((acc, fn) => {
+  return (...args) => {
+    return acc(fn(...args))
+  }
+})
+
+console.log(res(10))
+
+
