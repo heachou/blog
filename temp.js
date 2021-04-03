@@ -115,6 +115,12 @@ function flatten(arr) {
   return _arr
 }
 
+function flatten2(arr) {
+  return arr.reduce((acc, current) => {
+    return Array.isArray(current) ? acc.concat(flatten2(current)) : acc.concat(current)
+  }, [])
+}
+
 function deepClone(obj, hashMap = new WeakMap()) {
   if (obj == undefined || typeof obj !== 'object') {
     return obj
@@ -277,12 +283,12 @@ const compose = (...fns) => {
   }
 }
 
-// const compose = (...fns) => {
-//   return fns.reduce((acc, current) => value => {
-//     console.log(current(value))
-//     return acc(current(value))
-//   })
-// }
+const compose = (...fns) => {
+  return fns.reduce((acc, current) => value => {
+    console.log(current(value))
+    return acc(current(value))
+  })
+}
 
 // const compose = (...fns) =>
 //   fns.reduce((prevFn, nextFn) =>

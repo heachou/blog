@@ -33,7 +33,7 @@ function foo(arrIn){
 }
 ```
 
-看到题的时候，感觉有点懵。
+看到题的时候，感觉有点懵。更地道的javascript方式？？
 
 ## 对函数式编程的理解
 
@@ -85,7 +85,7 @@ xs.splice(0,3)
 
 ## curry函数
 
-![curry](./curry.html)
+见上一篇 [curry](./curry)
 
 ## compose函数
 
@@ -137,4 +137,22 @@ const compose = (...fns) => {
 // test
 compose(increment,double)([1,2,3])
 // [3,5,7]
+```
+
+## redux中compose实现
+
+```js
+function compose(...funcs) {
+  // funcs是一个保存着所有参数函数的数组
+  // 如果没有传递任何参数，就返回一个函数，这个函数是输入什么得到什么。
+  if (funcs.length === 0) {
+    return arg => arg
+  }
+  // 只传递一个参数的时候，就直接把这个函数返回
+  if (funcs.length === 1) {
+    return funcs[0]
+  }
+  // 返回组合函数
+  return funcs.reduce((a, b) => (...args) => a(b(...args)))
+}
 ```
