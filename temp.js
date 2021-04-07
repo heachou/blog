@@ -258,3 +258,191 @@ function getMaxSum(arr) {
 }
 
 const a = [1, -2, 3, 4, -1, 5]
+
+/**
+ * null
+ * undefined
+ * boolean
+ * number
+ * string
+ * symbol
+ * bigint
+ * Object
+ * Function
+ */
+
+/**
+ * 判断是否是NaN
+ * isNaN 排除undefined null等
+ */
+
+function judgeNaN(num) {
+  if (num === undefined || num === null) {
+    return false
+  }
+  return isNaN(num)
+}
+
+/**
+ * instanceof 判断基础类型
+ * typeof 判断null为Object
+ * Object.prototype.toString.call 判断类型比较完整
+ *  isXXX api   Array.isArray  isNaN等
+ */
+
+/**
+ * 普通函数this,谁调用，指向谁
+ * 箭头函数没有this,所以不能改变箭头函数的this
+ * 箭头函数的this只取决玉定义时的环境，无论谁调用都不会改变
+ */
+
+/**
+ * 闭包
+ * 假如一个函数能访问外部的变量，那么这个函数他就是一个闭包，而不是一定要返回一个函数
+ *
+ */
+
+/**
+ * new 操作符
+ * 1. 新生成一个对象
+ * 2. 将对象连接到构造函数原型上，并绑定this
+ * 3. 执行构造函数代码
+ * 4. 返回新的对象
+ */
+
+function create() {
+  // 这个是返回的对象
+  const obj = Object.create(null)
+  // 得到构造函数
+  const Con = [].shift.call(arguments)
+  // 将对象的原型指向构造函数的原型上
+  obj.__proto__ = Con.prototype
+  // 执行构造函数
+  let result = Con.apply(obj, arguments)
+  return typeof result === 'object' ? result : obj
+}
+
+/**
+ * 作用域可以理解为变量的可访问性，
+ * 全局作用域
+ * 函数作用域
+ * 块级作用域
+ * 什么是作用域
+ * 什么是作用域链
+ */
+
+/**
+ * 1. 每个对象都有一个__proto__属性，他指向一个对象，也就是原型
+ * 2. 每个对象的原型都可以通过constructor 找到构造函数，构造函数也可以通过prototype找到原型
+ * 3. 所有对象都可以通过 __proto__ 找到 Object 对象
+ * 4. 所有对象都可以通过 __proto__ 找到 Object 对象
+ * 5. 对象之间通过 __proto__ 连接起来，这样称之为原型链。当前对象上不存在的属性可以通过原型链一层层往上查找，直到顶层 Object 对象，再往上就是 null 了
+ */
+
+/**
+ * 继承
+ * es6继承的字类需要通过super才能拿到父类，ES5 的话是通过 apply 这种绑定的方式
+ * 类声明不会提升，和 let 这些一致
+ */
+
+function Super() {}
+
+Super.prototype.getNumber = function() {
+  return 1
+}
+
+/**
+ * 深浅拷贝
+ * 浅拷贝
+ * object.asssg  扩展运算符
+ * 深拷贝
+ * 递归 weakMap 避免循环引用
+ */
+
+/**
+ * Promise
+ * 三个状态 pending fulfilled reject
+ */
+
+const STATUS = {
+  PENDING: 'pending',
+  FULFILLED: 'fulfilled',
+  REJECTED: 'rejected',
+}
+
+new Promise((resolve, reject) => {
+  resolve(1)
+})
+  .then(
+    (res) => {
+      console.log(res)
+    },
+    (err) => {
+      console.log(err)
+    }
+  )
+  .then(
+    (res) => {},
+    (err) => err
+  )
+// https://juejin.cn/post/6947860760840110088?utm_source=gold_browser_extension#heading-24
+class MyPromise {
+  constructor(executor) {
+    this._status = STATUS.PENDING
+    this._value = undefined
+    this._resolveQueue = []
+    this._rejectQueue = []
+
+    const resolve = (value) => {
+      const run = () => {
+        if (this._status === STATUS.PENDING) {
+          this._status = STATUS.FULFILLED
+          this._value = value
+          while (this._resolveQueue.length) {
+            const callback = this._resolveQueue.shift()
+            callback(value)
+          }
+        }
+      }
+      setTimeout(run)
+    }
+
+    const reject = (value) => {
+      const run = () => {
+        if (this._status === STATUS.PENDING) {
+          this._status = STATUS.REJECTED
+          this._value = value
+
+          while (this._rejectQueue.length) {
+            const callback = this._rejectQueue.shift()
+            callback(value)
+          }
+        }
+      }
+      setTimeout(run)
+    }
+
+    executor(resolve, reject)
+  }
+  then(onFullfilled, onRejected) {
+    typeof onFullfilled !== 'function'
+      ? (onFullfilled = (value) => value)
+      : null
+    typeof onRejected !== 'function'
+        ? (onRejected = (value) => value)
+        : null
+    return new MyPromise((resolve,reject)=>{
+      const resolveFn = value =>{
+        try {
+          
+        } catch (error) {
+          
+        }
+      }
+
+
+
+
+    })
+  }
+}
