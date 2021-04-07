@@ -351,9 +351,9 @@ function create() {
  * 类声明不会提升，和 let 这些一致
  */
 
-function Super() {}
+function Super() { }
 
-Super.prototype.getNumber = function() {
+Super.prototype.getNumber = function () {
   return 1
 }
 
@@ -388,7 +388,7 @@ new Promise((resolve, reject) => {
     }
   )
   .then(
-    (res) => {},
+    (res) => { },
     (err) => err
   )
 // https://juejin.cn/post/6947860760840110088?utm_source=gold_browser_extension#heading-24
@@ -430,27 +430,103 @@ class MyPromise {
 
     executor(resolve, reject)
   }
+
   then(onFullfilled, onRejected) {
     typeof onFullfilled !== 'function'
       ? (onFullfilled = (value) => value)
       : null
     typeof onRejected !== 'function'
-        ? (onRejected = (value) => value)
-        : null
-    return new MyPromise((resolve,reject)=>{
-      const resolveFn = value =>{
+      ? (onRejected = (value) => value)
+      : null
+    return new MyPromise((resolve, reject) => {
+      const resolveFn = value => {
         try {
-          
+          const x = onFullfilled(value)
+          x instanceof MyPromise ? x.then(resolve, reject) : resolve(x)
         } catch (error) {
-          
+          reject(error)
         }
       }
 
+      const rejectFn = error => {
+        try {
+          const x = onRejected(error)
+          x instanceof MyPromise ? x.then(resolve, reject) : resolve(x)
+        } catch (error) {
+          reject(error)
+        }
+      }
 
-
-
+      switch (this._status) {
+        case STATUS.PENDING:
+          this._resolveQueue.push(resolveFn)
+          this._rejectQueue.push(rejectFn)
+          break
+        case STATUS.FULFILLED:
+          resolveFn(this._value)
+          break;
+        case STATUS.REJECTED:
+          rejectFn(this._value)
+          break
+      }
     })
   }
+
+  catch(rejectFn) {
+    return this.then(undefined, rejectFn)
+  }
+
+  finally(calllback) {
+    return this.then(value => MyPromise.resolve(callback()).then(() => value), error => {
+      MyPromise.resolve(callback()).then(() => error)
+    })
+  }
+
+  // 静态resolve方法
+  static resolve(value) {
+    return value instanceof MyPromise ? value : new MyPromise(resolve => resolve(value))
+  }
+
+  // 静态reject方法
+  static reject(error) {
+    return new MyPromise((resolve, reject) => reject(error))
+  }
+
+  // 静态all方法
+  static all(promiseArr) {
+    let count = 0
+    let result = []
+    return new MyPromise((resolve, reject) => {
+      if (!promiseArr.length) {
+        return resolve(result)
+      }
+      promiseArr.forEach((p, i) => {
+        MyPromise.resolve(p).then(value => {
+          count++
+          result[i] = value
+          if (count === promiseArr.length) {
+            resolve(result)
+          }
+        }, error => {
+          reject(error)
+        })
+      })
+    })
+  }
+
+  // 静态race方法
+  static race(promiseArr) {
+    return new MyPromise((resolve, reject) => {
+      promiseArr.forEach(p => {
+        MyPromise.resolve(p).then(value => {
+          resolve(value)
+        }, error => {
+          reject(error)
+        })
+      })
+    })
+  }
+
 }
 
 const double = (x) => x * 2
@@ -514,6 +590,54 @@ var res = fns.reduce((acc, fn) => {
   }
 })
 
-console.log(res(10))
+// console.log(res(10))
+
+// const dfs = (n)
+
+/**
+ * 事件循环
+ * 宏任务  同步代码、setTimeout 回调、setInteval 回调、IO、UI 交互事件、
+ * postMessage、MessageChannel
+ * 微任务  Promise 状态改变以后的回调函数（then 函数执行，如果此时状态没变，
+ * 回调只会被缓存，只有当状态改变，缓存的回调函数才会被丢到任务队列）
+ * 、Mutation observer 回调函数、queueMicrotask 回调函数
+ *
+ * JS 是个单线程语言，明白哪些是微宏任务、循环的顺序就好了
+ */
+
+/**
+ * 
+隐式转换（赋值迷惑人）
+闭包
+promise（注意return）
+结构复制和默认值（注意undefined 和 null）
+函数柯里化实现
+ * 
+ */
+
+function curry(fn) {
+  let len = fn.length
+
+  return function t() {
+    let argsLenth = arguments.length
+    let args = [].slice.call(arguments)
+
+    if (argsLenth >= len) {
+      return fn.apply(undefined, args)
+    }
+    return function () {
+      const totalArgs = args.concat([].slice.call(arguments))
+      return t.apply(undefined, totalArgs)
+    }
+  }
+}
+
+function add(x, y, z) {
+  return x + y + z
+}
+
+let curryAdd = curry(add, 1)
+
+let result = curryAdd(1)(2)
 
 
