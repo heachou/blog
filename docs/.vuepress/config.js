@@ -40,7 +40,8 @@ module.exports = {
       { text: 'flutter', link: '/flutter/' },
       { text: 'bugs', link: '/bugs/' },
       { text: 'else', link: '/else/' },
-      { text: 'js', link: '/js/' },
+      // { text: 'js', link: '/js/' },
+      { text: 'project', link: '/project/' },
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
     ],
     sidebar: {
@@ -49,7 +50,7 @@ module.exports = {
       '/webpack/': ['', 'webpack配置多入口'],
       '/bugs/': ['', 'toFixed', 'new Date ios','js运行环境判断'],
       '/flutter/': ['','PageView切换保存状态'],
-      '/js/': ['','js根据数组生成树形结构','tools','promise','curry','element','一些思考','generator','this','call、apply、bind、new'],
+      '/js/': ['','js根据数组生成树形结构','tools','promise','curry','compose','element','一些思考','generator','this','call、apply、bind、new'],
       '/else/': ['', 'axios 下载','github proxy','从输入URL到页面展示，发生了什么','Set','Map'],
     },
     // 博客配置
