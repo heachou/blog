@@ -641,3 +641,63 @@ let curryAdd = curry(add, 1)
 let result = curryAdd(1)(2)
 
 
+const doSomething = ()=>{
+  return Promise.resolve("1")
+}
+
+const doSomethingElse = ()=>{
+  return Promise.resolve("2")
+}
+
+
+doSomething().then(doSomethingElse).then(res=>{
+  console.log(res) // 2
+})
+
+doSomething().then(doSomethingElse()).then(res=>{
+  console.log(res) // 1
+})
+
+doSomething().then(()=>doSomethingElse()).then(res=>{
+  console.log(res) // 2
+})
+
+/**
+ * Map 与Object
+ * 1. 相同点
+ * 都是以重 键值对 的对象
+ * 2. 不同点
+ * Object对象一般有原型，除非是使用Object.create(null)创建的
+ * 在Object对象中，只能把String或Symbol作为key值，但是在Map中，key可以是任何基本类型，包括Object,undefined,Function，string等
+ * 通过Map中的size属性，可以获取到Map长度
+ * Map可以迭代，Object不可以，判断是否可迭代 typeof obj[Symbol.iterator] === 'function'
+ */
+/**
+ * mvvm  vue实现
+组件化  react
+react 反向继承？
+数组或对象的原生方法
+webpack
+vue2和vue3的区别
+
+vue react  diff  区别
+缓存   URL输入到渲染
+hooks与class区别
+继承
+grid 布局
+大量数据渲染 怎么不卡顿
+eventloop
+fiber
+微任务宏任务
+map  和 object  储存有什么区别
+0.5像素实现
+v8垃圾回收机制
+generator
+interface 与 class 区别
+泛型
+合成事件
+es6新增特性
+webpack plugin loader
+webpack 分包
+
+ */
