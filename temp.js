@@ -636,7 +636,7 @@ function add(x, y, z) {
   return x + y + z
 }
 
-let curryAdd = curry(add, 1)
+let curryAdd = curry(add)
 
 let result = curryAdd(1)(2)
 
