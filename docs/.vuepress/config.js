@@ -38,7 +38,7 @@ module.exports = {
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
     ],
     sidebar: {
-      '/react/': ['', 'react中模块懒加载', '生命周期', 'hooks'],
+      '/react/': ['', 'react中模块懒加载', '生命周期', 'api','hooks'],
       '/vue/': ['', 'vuepress配置code-copy','defineProperty','vdom','router'],
       '/webpack/': ['', 'webpack配置多入口'],
       '/bugs/': ['', 'toFixed', 'new Date ios','js运行环境判断'],
