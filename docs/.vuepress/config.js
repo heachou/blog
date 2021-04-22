@@ -8,6 +8,7 @@ module.exports = {
     // 作为特例，默认语言可以使用 '/' 作为其路径。
     '/': {
       lang: 'zh-CN',
+      description: '学习沉淀之处'
     },
   },
   head: [
