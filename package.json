@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.8.1",
+    "vuepress": "^1.5.2",
     "vuepress-plugin-one-click-copy": "^1.0.2",
-    "vuepress-theme-reco": "1.6.6"
+    "vuepress-theme-reco": "1.6.1"
   },
   "dependencies": {
     "vuepress-plugin-code-copy": "^1.0.6"
