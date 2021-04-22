@@ -702,3 +702,26 @@ webpack 分包
 sourceMap原理
 9761cad09c6531a6f7b55017109341f6
  */
+
+function isValid(s) {
+  const sArr = s.split('')
+  const arr = []
+  sArr.forEach(c=>{
+    if(c === '{' || c === '[' || c === '('){
+      arr.push(c)
+    }
+    const topChar = arr[arr.lenght - 1]
+    if(c === '}' && topChar==='{'){
+      arr.pop()
+    }
+    if(c === ']' && topChar==='['){
+      arr.pop()
+    }
+    if(c === ')' && topChar==='('){
+      arr.pop()
+    }
+  })
+  return arr.length === 0
+}
+
+isValid('()')
