@@ -2,7 +2,7 @@
 title: 认识Map
 date: 2020-11-03
 categories:
-  - 随记
+  - essay
 tags:
   - js
 ---

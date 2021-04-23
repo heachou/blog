@@ -2,7 +2,7 @@
 title: curry 函数柯里化
 date: 2021-01-09
 categories:
-  - 前端
+  - FE
 tags:
   - js
 ---

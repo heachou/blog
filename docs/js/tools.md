@@ -2,7 +2,7 @@
 title: js 一些工具函数
 date: 2021-01-08
 categories:
-  - 前端
+  - FE
 tags:
   - js
 ---

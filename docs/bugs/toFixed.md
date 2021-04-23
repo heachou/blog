@@ -2,7 +2,7 @@
 title: js 中 toFixed 的bug
 date: 2020-08-05
 categories:
- - 前端
+  - FE
 tags:
  - js
 ---

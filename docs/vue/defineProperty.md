@@ -2,7 +2,7 @@
 title: vue 响应式实现原理
 date: 2020-11-23
 categories:
-  - 前端
+  - FE
 tags:
   - vue
 ---

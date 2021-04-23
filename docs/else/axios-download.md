@@ -2,10 +2,10 @@
 title: axios 下载文件
 date: 2020-11-06
 categories:
- - 前端
+  - FE
 tags:
  - axios
- - 文件下载
+ - download
 ---
 
 :::tip

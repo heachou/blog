@@ -2,7 +2,7 @@
 title: call、apply、bind、instanceOf、new
 date: 2021-02-20
 categories:
-  - 前端
+  - FE
 tags:
   - js
 ---

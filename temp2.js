@@ -16,7 +16,7 @@ function isValid(s) {
   return stack.length === 0
 }
 
-console.log(isValid(')'))
+// console.log(isValid(')'))
 // 性能优化： 
 // 减少渲染，比如useMemo,memo,unstable_batchedUpdates,useCallBack,
 // 父组件更新引起的子组件更新
@@ -26,3 +26,24 @@ console.log(isValid(')'))
 // 骨架屏展示
 // cdn，图片lazyload，
 //  -->
+
+
+var RecentCounter = function(){
+  this.arr = []
+}
+
+RecentCounter.prototype.ping = function(t){
+  this.arr.push(t)
+  let head = this.arr[0]
+  while((t - head) > 3000){
+    this.arr.shift()
+    head = this.arr[0] 
+  }
+  return this.arr.length
+}
+
+var obj = new RecentCounter()
+console.log(obj.ping(1))
+console.log(obj.ping(2))
+console.log(obj.ping(3))
+console.log(obj.ping(4000))

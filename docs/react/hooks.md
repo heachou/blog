@@ -2,7 +2,7 @@
 title: React Hooks
 date: 2021-02-21
 categories:
-  - 前端
+  - FE
 tags:
   - react
 ---

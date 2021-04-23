@@ -2,7 +2,7 @@
 title: webpack 配置多页面入口
 date: 2020-08-16
 categories:
- - 工具
+ - tools
 tags:
  - webpack
 ---

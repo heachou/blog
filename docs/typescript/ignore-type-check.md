@@ -2,7 +2,7 @@
 title: typescript 忽略类型检查
 date: 2020-08-05
 categories:
- - 前端
+  - FE
 tags:
  - typescript
 ---

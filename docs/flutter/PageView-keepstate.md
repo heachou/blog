@@ -2,7 +2,7 @@
 title: flutter 中PageView Widget 切换保存状态
 date: 2020-10-15
 categories:
-  - 移动开发
+  - mobile
 tags:
   - flutter
 ---

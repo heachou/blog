@@ -2,7 +2,7 @@
 title: js 中 new Date 在移动端IOS系统解析bug
 date: 2020-08-24
 categories:
- - 前端
+  - FE
 tags:
  - js
 ---

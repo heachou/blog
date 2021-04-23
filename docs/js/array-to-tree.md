@@ -2,7 +2,7 @@
 title: js 生成树形结构
 date: 2020-11-11
 categories:
-  - 前端
+  - FE
 tags:
   - js
 ---

@@ -2,7 +2,7 @@
 title: react 生命周期
 date: 2021-02-18
 categories:
-  - 前端
+  - FE
 tags:
   - react
 ---

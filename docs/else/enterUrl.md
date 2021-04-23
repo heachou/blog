@@ -2,7 +2,7 @@
 title: 从按下回车，到页面展示过程详解
 date: 2021-02-22
 categories:
- - 前端
+  - FE
 tags:
  - http
 ---

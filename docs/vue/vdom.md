@@ -2,7 +2,7 @@
 title: vdom
 date: 2020-11-23
 categories:
-  - 前端
+  - FE
 tags:
   - vue
 ---

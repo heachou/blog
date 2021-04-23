@@ -2,7 +2,7 @@
 title: js对象模拟DOM对象
 date: 2021-01-09
 categories:
-  - 前端
+  - FE
 tags:
   - vdom
 ---

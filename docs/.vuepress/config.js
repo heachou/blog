@@ -40,15 +40,14 @@ module.exports = {
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
     ],
     sidebar: {
-      '/react/': ['', 'react中模块懒加载', '生命周期', 'api','hooks'],
-      '/vue/': ['', 'vuepress配置code-copy','defineProperty','vdom','router'],
-      // '/webpack/': ['', 'webpack配置多入口'],
-      '/bugs/': ['', 'toFixed', 'new Date ios','js运行环境判断'],
-      // '/flutter/': ['','PageView切换保存状态'],
-      '/algorithm/': ['','intro','stack'],
-      '/js/': ['','array-to-tree','tools','promise','curry','compose','element','think','generator','this','call、apply、bind、new'],
-      // '/js/': ['','array-to-tree',,'tools','promise','curry','compose','element','think','generator','this','call、apply、bind、new'],
-      '/else/': ['', 'axios 下载','github proxy','从输入URL到页面展示，发生了什么','缓存','Set','Map'],
+      '/react/': ['', 'react-lazyload', 'lifecycle', 'api','hooks'],
+      '/vue/': ['', 'code-copy','defineProperty','vdom','router'],
+      // '/webpack/': ['', 'webpack-multi-enterpoint'],
+      '/bugs/': ['', 'toFixed', 'new Date ios','jsRuntimeEnv'],
+      // '/flutter/': ['','PageView-keepstate'],
+      '/algorithm/': ['','intro','stack','queue'],
+      '/js/': ['','array-to-tree','tools','promise','curry','compose','element','think','generator','this','call-apply-bind-new'],
+      '/else/': ['', '-download','github proxy','enterUrl','cache','Set','Map'],
     },
     // 博客配置
     blogConfig: {

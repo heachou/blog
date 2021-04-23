@@ -2,10 +2,10 @@
 title: 栈
 date: 2021-04-22
 categories:
-  - 前端
+  - FE
 tags:
   - js
-  - 数据结构
+  - data structure
 ---
 
 :::tip
@@ -14,7 +14,7 @@ tags:
 
 <!-- more -->
 
-## 简介
+## 什么是栈
 
 栈是一个后进先出的数据结构。
 

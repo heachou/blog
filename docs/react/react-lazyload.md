@@ -2,7 +2,7 @@
 title: react code splitting
 date: 2020-08-14
 categories:
- - 前端
+  - FE
 tags:
  - react
 ---

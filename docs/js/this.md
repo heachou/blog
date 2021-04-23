@@ -2,10 +2,10 @@
 title: this 指向 
 date: 2021-02-07
 categories:
-  - 前端
+  - FE
 tags:
   - js
-  - 面试
+  - interview
 ---
 
 ## this 指向

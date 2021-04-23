@@ -2,7 +2,7 @@
 title: github clone 设置代理
 date: 2020-09-10
 categories:
- - 工具
+ - tools
 tags:
  - github
 ---

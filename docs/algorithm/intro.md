@@ -1,11 +1,11 @@
 ---
-title: 简介
+title: 算法数据结构简介
 date: 2021-04-22
 categories:
-  - 前端
+  - FE
 tags:
   - js
-  - 数据结构
+  - data structure
 ---
 
 :::tip

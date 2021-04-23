@@ -2,10 +2,10 @@
 title: 一些学习的思考
 date: 2021-01-09
 categories:
-  - 前端
+  - FE
 tags:
   - js
-  - 面试
+  - interview
 ---
 
 

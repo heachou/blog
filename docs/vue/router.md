@@ -2,7 +2,7 @@
 title: vue-router 简单原理
 date: 2020-11-24
 categories:
-  - 前端
+  - FE
 tags:
   - vue
   - vue-router

@@ -2,7 +2,7 @@
 title: promise的简易实现
 date: 2021-01-08
 categories:
-  - 前端
+  - FE
 tags:
   - js
 ---

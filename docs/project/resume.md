@@ -2,9 +2,9 @@
 title: 做过的项目汇总
 date: 2021-03-31
 categories:
-  - 前端
+  - FE
 tags:
-  - 随记
+  - essay
 ---
 
 ## 项目截图汇总

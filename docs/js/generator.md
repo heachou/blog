@@ -2,10 +2,10 @@
 title: generator 
 date: 2021-02-06
 categories:
-  - 前端
+  - FE
 tags:
   - js
-  - 面试
+  - interview
 ---
 
 

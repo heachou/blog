@@ -2,7 +2,7 @@
 title: js运行环境判断
 date: 2021-04-01
 categories:
-  - 前端
+  - FE
 tags:
   - bug
 ---

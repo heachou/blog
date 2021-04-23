@@ -2,9 +2,9 @@
 title: 前端缓存
 date: 2021-04-12
 categories:
-  - 前端
+  - FE
 tags:
-  - 缓存
+  - cache
 ---
 
 :::tip
