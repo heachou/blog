@@ -47,7 +47,7 @@ module.exports = {
       // '/flutter/': ['','PageView-keepstate'],
       '/algorithm/': ['','intro','stack','queue'],
       '/js/': ['','array-to-tree','tools','promise','curry','compose','element','think','generator','this','call-apply-bind-new'],
-      '/else/': ['', '-download','github proxy','enterUrl','cache','Set','Map'],
+      '/else/': ['', 'axios-download','github proxy','enterUrl','cache','Set','Map'],
     },
     // 博客配置
     blogConfig: {
