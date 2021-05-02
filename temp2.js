@@ -28,16 +28,16 @@ function isValid(s) {
 //  -->
 
 
-var RecentCounter = function(){
+var RecentCounter = function () {
   this.arr = []
 }
 
-RecentCounter.prototype.ping = function(t){
+RecentCounter.prototype.ping = function (t) {
   this.arr.push(t)
   let head = this.arr[0]
-  while((t - head) > 3000){
+  while ((t - head) > 3000) {
     this.arr.shift()
-    head = this.arr[0] 
+    head = this.arr[0]
   }
   return this.arr.length
 }
@@ -47,3 +47,17 @@ console.log(obj.ping(1))
 console.log(obj.ping(2))
 console.log(obj.ping(3))
 console.log(obj.ping(4000))
+
+const MyInstanceOf = (A, B) => {
+  let p = A
+  while (p) {
+    if (p === B.prototype) {
+      return true
+    }
+    p = p.__proto__
+  }
+  return false
+}
+
+
+console.log(MyInstanceOf(1, Number))

@@ -66,7 +66,7 @@ console.log(obj.ping(3))
 console.log(obj.ping(4000))
 ```
 
-2. js 中的异步任务
+js 中的异步任务
 
 常见面试题
 
