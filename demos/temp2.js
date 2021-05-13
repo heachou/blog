@@ -130,4 +130,107 @@ var minWindow = function(s, t) {
   return str
 }
 
-minWindow('ADOBECODEBANC', 'ABCC')
+// minWindow('ADOBECODEBANC', 'ABCC')
+
+const tree = {
+  val: '1',
+  children: [
+    {
+      val: '2-1',
+      children: [
+        {
+          val: '2-1-1',
+          children: [],
+        },
+      ],
+    },
+    {
+      val: '2-2',
+      children: [
+        {
+          val: '2-2-1',
+          children: [],
+        },
+      ],
+    },
+  ],
+}
+
+// const dfs = (root) => {
+//   console.log(root.val)
+//   root.children.forEach(dfs)
+// }
+
+const dfs = (root) => {
+  const stack = []
+  stack.push(root)
+  while (stack.length) {
+    const t = stack.pop()
+    console.log(t.val)
+    if (t.children.length) {
+      t.children[1] && stack.push(t.children[1])
+      t.children[0] && stack.push(t.children[0])
+    }
+  }
+}
+
+dfs(tree)
+
+const bfs = (root) => {
+  const q = []
+  q.push(root)
+  while (q.length) {
+    console.log(q[0].val)
+    if (q[0].children) {
+      q.push(...q[0].children)
+    }
+    q.shift()
+  }
+}
+
+// bfs(tree)
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function(root) {
+  let max = 0
+  const dfs = (root, n) => {
+    console.log(root.val)
+    max = n
+    const children = []
+    root.left && children.push(root.left)
+    root.right && children.push(root.right)
+    children.forEach((child) => dfs(child, n + 1))
+  }
+  dfs(root, 0)
+  return max
+}
+
+var minDepth = function(root) {
+  if (!root) {
+    return 0
+  }
+
+  const q = []
+  q.push([root, 1])
+  while (q.length) {
+    const [item, level] = q[0]
+    if (!item.left && !item.right) {
+      
+      return level
+    }
+    item.left && q.push(item.left, level + 1)
+    item.right && q.push(item.right, level + 1)
+    q.shift()
+  }
+}

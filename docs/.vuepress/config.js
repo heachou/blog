@@ -45,7 +45,7 @@ module.exports = {
       // '/webpack/': ['', 'webpack-multi-enterpoint'],
       '/bugs/': ['', 'toFixed', 'new Date ios','jsRuntimeEnv'],
       // '/flutter/': ['','PageView-keepstate'],
-      '/algorithm/': ['','intro','stack','queue','linkedList','set','map'],
+      '/algorithm/': ['','intro','stack','queue','linkedList','set','map','tree'],
       '/js/': ['','array-to-tree','tools','promise','curry','compose','element','think','generator','this','call-apply-bind-new'],
       '/else/': ['', 'axios-download','github proxy','enterUrl','cache','Set','Map'],
     },
