@@ -234,3 +234,23 @@ var minDepth = function(root) {
     q.shift()
   }
 }
+
+var levelOrder = function(root) {
+  if(!root){
+    return []
+  }
+  const res = []
+  const q  = [[root,0]]
+  while(q.length){
+    const [n,l] = q.shift()
+    if(n.left){
+      res[l] = res[l] ? res[l].push(n.left): [n.left]
+    }
+    if(n.right){
+      res[l] = res[l] ? res[l].push(n.right): [n.right]
+    }
+    n.left && q.push(n.left)
+    n.right && q.push(n.right)
+  }
+  return res
+};

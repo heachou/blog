@@ -334,7 +334,7 @@ var maxDepth = function(root) {
 输出：2
 ```
 
-最小深度，当然事层序遍历，就是广度优先 (bfs)
+最小深度，层序遍历，就是广度优先 (bfs)
 
 ```js
 var minDepth = function(root) {
@@ -354,8 +354,180 @@ var minDepth = function(root) {
 }
 ```
 
---- 
+---
 
 例子三：
 
+[二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+
+```
+二叉树：[3,9,20,null,null,15,7]
+    3
+   / \
+  9  20
+    /  \
+   15   7
+返回其层序遍历结果：
+[
+  [3],
+  [9,20],
+  [15,7]
+]
+```
+
+害，这题和上面题类似，都是采用广度优先遍历的方式
+
+```js
+var levelOrder = function(root) {
+  if (!root) {
+    return []
+  }
+  const res = []
+  const q = [[root, 0]]
+  while (q.length) {
+    const [n, l] = q.shift()
+    if (!res[l]) {
+      res[l] = []
+    }
+    res[l].push(n.val)
+    n.left && q.push([n.left, l + 1])
+    n.right && q.push([n.right, l + 1])
+  }
+  return res
+}
+```
+
+---
+
+例子四：
+[二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+
+中序遍历，额，两个版本
+
+1. 递归版
+
+```js
+var inorderTraversal = function(root) {
+  const res = []
+  const rec = (node) => {
+    if (!node) {
+      return
+    }
+    rec(node.left)
+    res.push(node.val)
+    rec(node.right)
+  }
+  rec(root)
+  return res
+}
+```
+
+2. 非递归版
+
+```js
+var inorderTraversal = function(root) {
+  if (!root) {
+    return []
+  }
+  const res = []
+  const stack = []
+  let p = root
+  while (stack.length || p) {
+    while (p) {
+      stack.push(p)
+      p = p.left
+    }
+    const t = stack.pop()
+    res.push(t.val)
+    p = t.right
+  }
+  return res
+}
+```
+
+---
+
+例子五：
+[路劲总和](https://leetcode-cn.com/problems/path-sum/)
+
+给你二叉树的根节点  root 和一个表示目标和的整数  targetSum ，判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和  targetSum 。
+
+叶子节点 是指没有子节点的节点。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/path-sum
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+```
+输入：root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
+输出：true
+
+输入：root = [1,2,3], targetSum = 5
+输出：false
+
+输入：root = [1,2], targetSum = 0
+输出：false
+```
+
+由于是完整路劲的总和，考虑深度优先遍历，所以采用 dfs 算法..
+
+在每个节点存储所有父节点的累计值。
+
+```js
+var hasPathSum = function(root, targetSum) {
+  if (!root) {
+    // 考虑空节点
+    return false
+  }
+  const stack = []
+  stack.push([root, 0])
+  while (stack.length) {
+    const [t, v] = stack.pop()
+    if (!t.left && !t.right) {
+      // 叶子节点
+      if (t.val + v === targetSum) {
+        return true
+      }
+    }
+    t.left && stack.push([t.left, t.val + v])
+    t.right && stack.push([t.right, t.val + v])
+  }
+  return false
+}
+```
+
+例子六：
+
+遍历 json 的每一个节点
+
+```js
+const json = {
+  a: { b: { c: 1 } },
+  d: [2, 3],
+}
+```
+
+遍历 json 的每一个节点
+
+```js
+const json = {
+  a: { b: { c: 1 } },
+  d: [2, 3],
+}
+// dfs
+function travel(json) {
+  if (typeof json !== 'object') return
+  console.log(json)
+  for (let key in json) {
+    console.log(json[key])
+    travel(json[key])
+  }
+}
+
+travel(json)
+```
+
+--- 
+
+需要掌握并牢记，bfs，dfs，算法，树的先中后序遍历，递归版本和非递归版本。
 

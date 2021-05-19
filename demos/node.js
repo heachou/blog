@@ -31,3 +31,4 @@ setTimeout(()=>{
 console.log(process.platform) // win32
 
 console.log(process.argv)
+
