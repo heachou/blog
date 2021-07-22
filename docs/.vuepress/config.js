@@ -36,6 +36,7 @@ module.exports = {
       { text: 'Bugs', link: '/bugs/' },
       { text: '算法', link: '/algorithm/' },
       { text: '其他', link: '/else/' },
+      { text: '数据库', link: '/db/' },
       // { text: 'project', link: '/project/' },
       { text: '时间线', link: '/timeline/', icon: 'reco-date' },
     ],
@@ -49,6 +50,7 @@ module.exports = {
       '/algorithm/': ['','intro','stack','queue','linkedList','set','map','tree','graph'],
       '/js/': ['','array-to-tree','tools','promise','curry','compose','element','think','generator','this','call-apply-bind-new'],
       '/typescript/': ['','decorator'],
+      '/db/': ['','mongo.crud'],
       '/else/': ['', 'axios-download','github proxy','enterUrl','cache','Set','Map'],
     },
     // 博客配置
