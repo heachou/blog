@@ -50,7 +50,7 @@ module.exports = {
       '/algorithm/': ['','intro','stack','queue','linkedList','set','map','tree','graph'],
       '/js/': ['','array-to-tree','tools','promise','curry','compose','element','think','generator','this','call-apply-bind-new'],
       '/typescript/': ['','decorator'],
-      '/db/': ['','mongo.crud'],
+      '/db/': ['','mongo.crud','mongo.aggregate','mongo.index'],
       '/else/': ['', 'axios-download','github proxy','enterUrl','cache','Set','Map'],
     },
     // 博客配置
