@@ -1,8 +1,19 @@
-# 聚合
+---
+title: mongodb aggragate
+date: 2021-08-06
+categories:
+  - DB
+tags:
+  - DB
+---
 
 ## \$unwind
 
+展开
+
 ## \$group
+
+分组
 
 ```js
 db.transactions.aggregate([
@@ -22,19 +33,23 @@ db.transactions.aggregate([
 
 ## \$match
 
+匹配 
 ## \$lookup
 
+关联查询
 ## \$sort
 
+排序
 ## \$limit
 
+限制
 ## \$skip
 
-## \$lookup
+跳过
 
 ## $eq  $gt $lt $gte \$lte
 
-## \$out  将聚合管道中的文档写入一个新的集合
+## \$out 将聚合管道中的文档写入一个新的集合
 
 ```js
 db.transactions.aggregate([
@@ -52,4 +67,4 @@ db.transactions.aggregate([
 
 ## allowDiskUse 防止数据量过大造成的内存不足，写入临时文件
 
-## 
+##

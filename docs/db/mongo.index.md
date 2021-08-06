@@ -1,3 +1,12 @@
+---
+title: mongodb index
+date: 2021-08-06
+categories:
+  - DB
+tags:
+  - DB
+---
+
 # 索引 index
 
 对文档部分内容进行排序的数据结构
