@@ -41,7 +41,7 @@ module.exports = {
       { text: '时间线', link: '/timeline/', icon: 'reco-date' },
     ],
     sidebar: {
-      '/react/': ['', 'react-lazyload', 'lifecycle', 'api','hooks','redux','state'],
+      '/react/': ['', 'react-lazyload', 'lifecycle', 'api','hooks','redux','state','useForm'],
       '/vue/': ['', 'code-copy','defineProperty','vdom','router'],
       // '/webpack/': ['', 'webpack-multi-enterpoint'],
       '/bugs/': ['', 'toFixed', 'new Date ios','jsRuntimeEnv'],
