@@ -44,7 +44,7 @@ module.exports = {
       '/react/': ['', 'react-lazyload', 'lifecycle', 'api','hooks','redux','state','useForm'],
       '/vue/': ['', 'code-copy','defineProperty','vdom','router'],
       // '/webpack/': ['', 'webpack-multi-enterpoint'],
-      '/bugs/': ['', 'toFixed', 'new Date ios','jsRuntimeEnv'],
+      '/bugs/': ['', 'toFixed', 'new Date ios','jsRuntimeEnv',"api 代理证书问题"],
       '/node/': ['', 'require'],
       // '/flutter/': ['','PageView-keepstate'],
       '/algorithm/': ['','intro','stack','queue','linkedList','set','map','tree','graph'],

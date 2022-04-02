@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #container{
+    overflow: auto;
+  }
+  ul{
+    margin: 0;
+    padding: 0;
+  }
+  li{
+    height: 31px;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<body>
+  <div id="container" style="height: 100vh">
+    <!-- #list 是 position: absolute 的，用来放置实际显示的列表元素 -->
+    <ul id="list"></ul>
+    <!-- #content-placeholder 用来将整个列表区域撑开到渲染所有元素时应有的高度 -->
+    <div id="content-placeholder"></div>
+</div>
+<script>
+  // 列表元素高度
+const ITEM_HEIGHT = 31
+// 列表元素个数
+const ITEM_COUNT = 500
+
+window.onload = function () {
+    const container = document.querySelector('#container')
+    const containerHeight = container.clientHeight
+    const list = document.querySelector('#list')
+    // 一屏可以渲染下的元素个数
+    const visibleCount = Math.ceil(containerHeight / ITEM_HEIGHT)
+    const placeholder = document.querySelector('#content-placeholder')
+    placeholder.style.height = ITEM_COUNT * ITEM_HEIGHT + 'px'
+    // 首次渲染
+    list.appendChild(renderNodes(0, visibleCount))
+    container.addEventListener('scroll', function() {
+        // 使用 translate3d 将可视列表调整到屏幕正中的位置
+        list.style.webkitTransform = `translate3d(0, ${container.scrollTop - container.scrollTop % ITEM_HEIGHT}px, 0)`
+        list.innerHTML = ''
+        // 计算可视区域列表的起始元素的 index
+        const firstIndex = Math.floor(container.scrollTop / ITEM_HEIGHT)
+        list.appendChild(renderNodes(firstIndex, firstIndex + visibleCount))
+    })
+}
+
+function renderNodes(from, to) {
+    const fragment = document.createDocumentFragment()
+    for (let i = from; i < to; i++) {
+        const el = document.createElement('li')
+        el.innerHTML = i + 1
+        fragment.appendChild(el)
+    }
+    return fragment
+}
+</script>
+</body>
+</html>

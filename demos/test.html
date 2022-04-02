@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-  }
-  .box{
-    display: flex;
-    height: 400px;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-content: flex-start;
-  }
-  .item{
-    width: 33.33%;
-    height: 28px;
-    line-height: 28px;
-    background-color: red;
-  }
-</style>
-<body>
-  <div class="box">
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-    <div class="item">4</div>
-    <div class="item">5</div>
-    <div class="item">1</div>
-    <div class="item">1</div>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- type="javascript/worker" 写上这个类型，里面的脚本是不会执行的 -->
+    <script type="javascript/worker" id="worker">
+      function fibonacci (n) {
+            if(n===1 || n ==2) {
+                return 1
+            }
+            return fibonacci(n-2) + fibonacci(n-1)
+        }
+        console.log(this)
+        postMessage(fibonacci(40))
+        onmessage = function(e){
+          console.log("ok ok",e)
+        }
+    </script>
+    <script>
+      // 拿到worker里的代码字符串
+      var workerScript = document.querySelector('#worker').textContent
+      // Blob ：二进制大对象
+      var blob = new Blob([workerScript], { type: 'text/javascript' })
+      // blob:null/9d8594c9-1783-46f9-8001-c6112af6a15a 可以在浏览器中访问，可以看见worker里的代码
+      var worker = new Worker(window.URL.createObjectURL(blob))
+      worker.onmessage = function(e) {
+        console.log('拿到worker通知的数据', e)
+        worker.postMessage('message收到了')
+      }
+    </script>
+  </body>
 </html>
